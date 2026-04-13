@@ -72,21 +72,31 @@ const ScrollRevealText = () => {
         const start = i / words.length;
         const end = start + 1 / words.length;
 
-        const opacity = useTransform(
-          scrollYProgress,
-          [start, end],
-          [0.2, 1]
-        );
-
         return (
-          <motion.span key={i} style={{ opacity }}>
-            {word}
-          </motion.span>
+          <Word
+            key={i}
+            word={word}
+            scrollYProgress={scrollYProgress}
+            start={start}
+            end={end}
+          />
         );
       })}
     </p>
   );
 };
+
+
+const Word = ({ word, scrollYProgress, start, end }) => {
+  const opacity = useTransform(scrollYProgress, [start, end], [0.2, 1]);
+
+  return (
+    <motion.span style={{ opacity }}>
+      {word}
+    </motion.span>
+  );
+};
+
 
 export default function StatsSection() {
   const stats = [
