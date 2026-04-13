@@ -7,7 +7,7 @@ export default function Navbar() {
 
       {/* Brand */}
       <div className="text-[#0f2678] text-xl font-semibold tracking-wide">
-        Stefan Koprivica
+        Funnel Tactics
       </div>
 
       {/* Right side */}
